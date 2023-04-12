@@ -13,7 +13,7 @@
 ALLOCATOR_CREATE_MUTEX()
 
 static uint8_t mem_pool[ALLOCATOR_POOL_SIZE];
-static unsigned int mem_status_bitmap[(ALLOCATOR_UNITS + BITS_IN_UNSIGNED_INT - 1) /
+static unsigned int mem_status_bitmap[ROUND_UP(ALLOCATOR_UNITS, BITS_IN_UNSIGNED_INT) /
 				      BITS_IN_UNSIGNED_INT] = {0};
 
 /**

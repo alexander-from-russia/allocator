@@ -8,9 +8,17 @@
 #ifndef ALLOCATOR_COMPAT_H_
 #define ALLOCATOR_COMPAT_H_
 
+#ifndef BITS_IN_UNSIGNED_INT
 #define BITS_IN_UNSIGNED_INT	(sizeof(unsigned int) * 8)
-#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+#endif
 
+#ifndef ARRAY_SIZE
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+#endif
+
+#ifndef ROUND_UP
+#define ROUND_UP(N, S) ((((N) + (S) - 1) / (S)) * (S))
+#endif
 
 static inline int ffs(unsigned int x)
 {
