@@ -25,23 +25,23 @@ Test(allocatorTEST, create) {
 		ptr[i] = allocate_buf();
 		cr_expect(ptr[i], "Allocation error 0");
 	}
-	/* Try to allocate memory buffer when there is no memory left, NULL should be returned */
+	/* Try to allocate memory buffer when memory pool is depleted, NULL should be returned */
 	extra_ptr = allocate_buf();
 	cr_expect(!extra_ptr, "Allocation error 1");
 	/* Try to deallocate with invalid pointer, error code should be returned */
 	res = deallocate_buf((void *)((size_t)ptr[0] + 1));
-	cr_expect(res, "Allocation error 5");
+	cr_expect(res, "Allocation error 2");
 	/* Release all allocated buffers */
 	for (i = 0; i < ALLOCATOR_UNITS; i++) {
 		res = deallocate_buf(ptr[i]);
-		cr_expect(!res, "Allocation error 2");
+		cr_expect(!res, "Allocation error 3");
 	}
 	/* Try to take all chunks of memory again */
 	for (i = 0; i < ALLOCATOR_UNITS; i++) {
 		ptr[i] = allocate_buf();
-		cr_expect(ptr[i], "Allocation error 3");
+		cr_expect(ptr[i], "Allocation error 4");
 	}
-	/* Try to allocate memory buffer when there is no memory left, NULL should be returned */
+	/* Try to allocate memory buffer when memory pool is depleted, NULL should be returned */
 	extra_ptr = allocate_buf();
-	cr_expect(!extra_ptr, "Allocation error 4");
+	cr_expect(!extra_ptr, "Allocation error 5");
 }
