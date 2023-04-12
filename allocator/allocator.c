@@ -14,7 +14,7 @@ ALLOCATOR_CREATE_MUTEX()
 
 static uint8_t mem_pool[ALLOCATOR_POOL_SIZE];
 static unsigned int mem_status_bitmap[(ALLOCATOR_UNITS + BITS_IN_UNSIGNED_INT - 1) /
-									  BITS_IN_UNSIGNED_INT] = {0};
+				      BITS_IN_UNSIGNED_INT] = {0};
 
 /**
  * \brief Allocate a memory buffer of fixed size
