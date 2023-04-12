@@ -35,6 +35,9 @@ void *allocate_buf(void)
 		if (bit) {
 			bit--;
 			buf_idx = i * BITS_IN_UNSIGNED_INT + bit;
+			if (buf_idx >= ALLOCATOR_UNITS) {
+				break;
+			}
 			mem_status_bitmap[i] |= 1 << bit;
 			ptr = &mem_pool[buf_idx * ALLOCATOR_UNIT_SIZE];
 			break;
