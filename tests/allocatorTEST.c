@@ -16,7 +16,7 @@ static void *ptr[ALLOCATOR_UNITS];
  * \brief Basic test cases for memory allocation
  */
 Test(allocatorTEST, create) {
-	unsigned int i;
+	size_t i;
 	void *extra_ptr;
 	int res;
 

@@ -24,8 +24,8 @@ void *allocate_buf(void)
 {
 	size_t i;
 	size_t buf_idx;
-	size_t bit;
-	uint8_t *ptr = NULL;
+	unsigned int bit;
+	void *ptr = NULL;
 
 	if(!ALLOCATOR_TAKE_MUTEX()) {
 		return NULL;
@@ -53,8 +53,8 @@ void *allocate_buf(void)
 int deallocate_buf(void *ptr)
 {
 	size_t offset = (size_t)ptr - (size_t)&mem_pool[0];
-	size_t bit;
 	size_t idx;
+	unsigned int bit;
 
 	if (offset >= ALLOCATOR_POOL_SIZE)
 		return -1;
