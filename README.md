@@ -1,4 +1,4 @@
-# Allocator test project
+# Memory allocator test project
 
 To build unit tests Criterian libriary must be installed
 
